@@ -4,9 +4,11 @@ import de.zorro909.discordnotifier.api.component.ComponentType;
 import de.zorro909.discordnotifier.api.component.DiscordInteractionComponentDto;
 import io.micronaut.core.annotation.Introspected;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.ToString;
+import lombok.Value;
 import lombok.extern.jackson.Jacksonized;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.validation.constraints.Size;
@@ -14,19 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Introspected
 @AllArgsConstructor
+@Introspected
 @Builder
 @Jacksonized
 @ToString
 @Value
-public class SubmitNotificationDto {
+public class EditNotificationDto {
 
-    @NotNull
-    private String                                     channelName;
-    @NotNull
+    @Nullable
     private String                                     title;
-    @NotNull
+    @Nullable
     private String                                     message;
     @Nullable
     private String                                     imageUrl;
@@ -36,9 +36,9 @@ public class SubmitNotificationDto {
     @Size(max = 5)
     private List<List<DiscordInteractionComponentDto>> components;
 
-    public static class SubmitNotificationDtoBuilder {
+    public static class EditNotificationDtoBuilder {
 
-        public SubmitNotificationDtoBuilder addComponent(DiscordInteractionComponentDto newComponent) {
+        public EditNotificationDtoBuilder addComponent(DiscordInteractionComponentDto newComponent) {
             if (components == null) {
                 components = new ArrayList<>();
             }
@@ -85,5 +85,4 @@ public class SubmitNotificationDto {
             return false;
         }
     }
-
 }
