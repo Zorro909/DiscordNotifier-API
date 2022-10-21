@@ -24,14 +24,6 @@
         </license>
     </licenses>
 
-    <distributionManagement>
-      <repository>
-        <id>github</id>
-        <name>GitHub Zorro909 Apache Maven Packages</name>
-        <url>https://maven.pkg.github.com/Zorro909/Packages</url>
-      </repository>
-    </distributionManagement>
-
     <developers>
         <developer>
           <name>Maximilian Kling</name>

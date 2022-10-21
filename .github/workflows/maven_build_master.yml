@@ -15,9 +15,9 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build with Maven
         run: |
-          mvn deploy -Dpackaging=jar
+          mvn deploy -Dpackaging=jar -Dgithub.token=${{ secrets.GITHUB_TOKEN }}
           mvn build-helper:parse-version versions:set -DnewVersion=\${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}.\${parsedVersion.incrementalVersion}-SNAPSHOT
-          mvn deploy -Dpackaging=jar
+          mvn deploy -Dpackaging=jar -Dgithub.token=${{ secrets.GITHUB_TOKEN }}
       - uses: actions/upload-artifact@v3
         with:
          name: discord-notifier
